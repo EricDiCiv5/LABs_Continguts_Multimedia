@@ -1,0 +1,33 @@
+h1{
+	color: #00FF7F;
+}
+
+h2{
+	color: #FF6347;
+}
+
+h3{
+	color: #DAA520;
+}
+
+body{
+	font-family: Arial;
+	font-size: 16px;
+}
+
+img{
+	width: 250px;
+	height: 250px;
+}
+
+/* # sirve para modificar ids únicos */
+#cuadro {
+  width: 1500px;
+  margin: 0 auto;
+}
+
+/* con punto modifico clases */
+
+.azul{
+	color:blue;
+}
