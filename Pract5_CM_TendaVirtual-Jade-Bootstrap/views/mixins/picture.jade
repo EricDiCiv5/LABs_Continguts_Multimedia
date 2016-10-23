@@ -1,0 +1,13 @@
+mixin picture(pict)
+
+    article.col-md-4
+        img(src=pict.image,border='1')
+        br
+        | #{pict.name}
+        br
+        | #{pict.getPrice()}€
+        br
+
+        center
+
+        input.boton(type='button',value='Afegir al Carro',onclick="comprar('#{pict.name}', '#{pict.getPrice()}');")
