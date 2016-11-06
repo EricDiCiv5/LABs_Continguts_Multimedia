@@ -63,14 +63,12 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-
     $('.img').mouseenter(function() {
         $(this).animate({		
 		opacity:'0.75',
 		width:'+=100px',
 		height:'+=100px',
 	},'fast');
-
         $(this).parent().addClass("selected");
     });
     $('.img').mouseout(function() {
