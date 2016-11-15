@@ -1,3 +1,3 @@
 Name: Eric Díaz Cívico
 
-This is Readme corresponding to lab session one
+This is the Readme corresponding to lab session one
