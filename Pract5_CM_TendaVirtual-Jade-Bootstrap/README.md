@@ -1,3 +1,5 @@
+Name: Eric Díaz Cívico
+
 This is the readme corresponding of the lab session five
 
 # How to run the example
