@@ -1,0 +1,20 @@
+extends tenda
+include mixins/picture
+
+     block content
+    .jumbotron
+        h1 Wildmusic Store
+
+     .menu
+        input.men(type='button', value='Menú principal')
+
+     .menu2
+
+        input(type='button', value='Els Nostres Productes', onclick="window.location.href='#'")
+
+        input(type='button', value='Les Nostres Ofertes', onclick="window.location.href='#'")
+
+        section#s1.row
+        - for (var i = 0; i < pics.length ; ++i) {
+            +picture(pics[i])
+        - }
