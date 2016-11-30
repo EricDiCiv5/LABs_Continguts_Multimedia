@@ -21,7 +21,7 @@ function preload() {
     calc.load.spritesheet('boton-12', 'assets/buttons/icon_division.png');
     calc.load.spritesheet('boton-13', 'assets/buttons/icon_multiply.png');
     calc.load.spritesheet('boton-14', 'assets/buttons/icon_add.png');
-	calc.load.spritesheet('boton-15', 'assets/buttons/icon_substract.png');
+    calc.load.spritesheet('boton-15', 'assets/buttons/icon_substract.png');
     
 }
 
@@ -37,7 +37,7 @@ var operand = 0,key = "",text;
 
 function create() {
 
-    calc.stage.backgroundColor = '#c7c7c7'; // Background colour of my calculator
+    calc.stage.background_calcColor = '#c7c7c7'; // Background colour of my calculator
 	
 	var design = { font: "28px Verdana", fill:"#ff0044", align: "center" }; // Design features of each button of my calculator.
 	text = calc.add.text(100,400,"",design) //Adding the text in a 100X400 pixels format with our design.
