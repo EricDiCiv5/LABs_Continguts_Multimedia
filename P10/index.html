@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">  <!--Format de l'estil de la visualitzacuió de Google Maps-->
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div> <!--Creació d'un contenidor dintre del cos amb l'identificador 'map'-->
+    
+	<script type="text/javascript"> <!--Generació d'una funció Javascript-->
+	
+	<!--Establiment de les variables necessàries per fer funcionar el nostre script-->
+	var map;
+	var Coords; 
+	var pic = images/xinxeta.png;
+	
+	<!--Si trobem la paraula clau "geolocation" en el nostre navegador, carreguem la funció 'Initmap' amb la nostra posició actual-->
+	if ("geolocation" in navigator) {
+	    navigator.geolocation.getCurrentPosition(function (position) {
+        initMap(position.coords.latitude, position.coords.longitude);
+    });
+	
+	<!--Col·loquem funció que pren posició coordenades marcades en la funció position declarada anteriorment-->
+	function initMap(latitude,longitude) {
+	Coords = {latid: latitude, lngit: longitude};
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: Coords,
+		zoom: 7
+	});
+	
+	
+	<!--Creació d'una variable vector on guardem cinc destinacions que volem que es mostri el nom envoltat per una bombolla-->
+	var indrets = [
+        ['Rubí', Coords.latid, Coords.lngit],
+        ['Prypiat, Ucrania', 51.405, 30.0542331],
+        ['Damasco, Siria', 33.5138073, 36.276528],
+        ['Yakarta, Indonesia', -6.1744651, 106.822745],
+        ['Pamplona', 38.99441, -1.8585446],
+        ['UPC Castelldefels', 41.275751, 1.987121]
+        ];
+	
+	<!--Establiment d'unes variables on trobem informació sobre la finestra desplegable i sobre el marcador--> 
+	var infowindow = new google.maps.InfoWindow();
+    var newMarker, i;
+	
+	<!--Ompliment de la variable 'newMarker' amb la classe 'marker' de google maps on li posem el mapa i les coordenades-->
+    newMarker = new google.maps.Marker({
+        position: Coords,
+        map: map
+    });
+	
+	<!--Creació d'un gestor d'event de click quan li passem la variable 'newMarker'-->
+	google.maps.event.addListener(newMarker, 'click', (function(newMarker) {
+        return function() {
+            infowindow.setContent(indrets[0][0]);
+            infowindow.open(map, newMarker);
+        }
+    })(newMarker, 0));
+	
+	
+	<!--Bucle 'for' per recorrer les cinc destinacions colocades en el vector 'indrets i mostrarles amb la imatge del punter-->
+    for (i = 1; i < indrets.length; i++) {
+        newMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(indrets[i][1], indrets[i][2]),
+            map: map,
+            icon: pic
+    });
+	
+	<!--Creació d'un gestor d'event de click per a la mostra del cinc indrets qguardats en el vector a través de la clase 'newMarker'-->
+	google.maps.event.addListener(newMarker, 'click', (function(newMarker, i) {
+        return function() {
+				infowindow.setContent(indrets[i][0]);
+				infowindow.open(map, newMarker);
+				}
+            })(newMarker, i));
+        }
+    }
+    } else {
+        alert("Disculpeu-nos les molèsties, geolocalització no trobada.");
+    }
+	
+    </script>
+	
+	<!-- Generació d'una funció que per met carregar API Google Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg_J4GD-kkCvvlKeyw5eZE55av5ILnESU&callback=initMap">
+    </script>
+  </body>
+</html>
