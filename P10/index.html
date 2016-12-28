@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">  <!--Format de l'estil de la visualitzacuió de Google Maps-->
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  
+  <body>
+    <div id="map"></div> <!--Creació d'un contenidor dintre del cos amb l'identificador 'map'-->
+    
+	<script type="text/javascript"> <!--Generació d'una funció Javscript per mostrar el lloc indicat per les seves coordenades-->
+	<!--Establiment de les variables necessàries per fer funcionar el nostre script-->
+	var map;
+	function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: 41.564098, lng: 2.022316300000057},
+		zoom: 8
+	});
+	}
+    </script>
+    
+	<!-- Generació d'una ufnció que per met carregar API Google Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg_J4GD-kkCvvlKeyw5eZE55av5ILnESU&callback=initMap">
+    </script>
+  </body>
+</html>
