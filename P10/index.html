@@ -57,6 +57,15 @@
             infowindow.open(map, newMarker);
            }
         })(newMarker, 0));	
+	
+	<!--Bucle 'for' per recorrer les cinc destinacions colocades en el vector 'indrets i mostrarles amb la imatge del punter.
+    	for (i = 1; i < indrets.length; i++) {
+            newMarker = new google.maps.Marker({
+            	position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map,
+                icon: pic
+        });	
+		
 		
 	}
     </script>
