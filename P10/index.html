@@ -16,7 +16,7 @@
 	var Coords; 
 	var pic = images/xinxeta.png;
 		
-	<!--Si trobem la paraula clau "geolocation" en el nostre navegador, carreguem la funció 'Initmap' amb la nostra posició actual-->
+	<!--Si trobem la paraula clau "geolocation" en el nostre navegador, carreguem la funció 'position' amb la nostra posició actual-->
 	if ("geolocation" in navigator) {
 	    navigator.geolocation.getCurrentPosition(function (position) {
         initMap(position.coords.latitude, position.coords.longitude);
@@ -30,7 +30,7 @@
 		zoom: 7
 	});
 		
-	<!-- Creació d'una variable vector on guardem cinc destinacions que volem que es mostri el nom envoltat per una bombolla-->
+	<!--Creació de una variable vector on guardem cinc destinacions que volem que es mostri el nom envoltat per una bombolla-->
 	var indrets = [
         ['Rubí', myLatLng.lat, myLatLng.lng],
         ['Prypiat, Ucrania', 51.405, 30.0542331],
@@ -39,6 +39,24 @@
         ['Pamplona', 38.99441, -1.8585446],
         ['UPC Castelldefels', 41.275751, 1.987121]
         ];
+	
+	<!--Establiment de unes variables on trobem informació sobre la finestra desplegable i sobre el marcador--> 
+	var infowindow = new google.maps.InfoWindow();
+    	var newMarker, i;
+	
+	<!--Ompliment de la variable 'newMarker' amb la classe 'marker' de google maps on li posem el mapa i les coordenades-->
+    	newMarker = new google.maps.Marker({
+        	position: Coords,
+       		map: map
+    	});	
+			
+	<!--Creació d'un gestor de click quan li passem la variable 'newMarker'-->
+	google.maps.event.addListener(newMarker, 'click', (function(newMarker) {
+        return function() {
+            infowindow.setContent(indrets[0][0]);
+            infowindow.open(map, newMarker);
+           }
+        })(newMarker, 0));	
 		
 	}
     </script>
