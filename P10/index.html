@@ -10,13 +10,24 @@
   <body>
     <div id="map"></div> <!--Creació d'un contenidor dintre del cos amb l'identificador 'map'-->
     
-	<script type="text/javascript"> <!--Generació d'una funció Javscript per mostrar el lloc indicat per les seves coordenades-->
+	<script type="text/javascript"> <!--Generació de una funció Javscript per mostrar el lloc indicat per les seves coordenades-->
 	<!--Establiment de les variables necessàries per fer funcionar el nostre script-->
 	var map;
+	var Coords; 
+	var pic = images/xinxeta.png;
+		
+	<!--Si trobem la paraula clau "geolocation" en el nostre navegador, carreguem la funció 'Initmap' amb la nostra posició actual-->
+	if ("geolocation" in navigator) {
+	    navigator.geolocation.getCurrentPosition(function (position) {
+        initMap(position.coords.latitude, position.coords.longitude);
+    	});
+	
+	<!--Col·loquem funció que pren posició coordenades marcades en la funció position declarada anteriorment-->
 	function initMap() {
+	Coords = {latid: latitude, lngit: longitude};
 	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 41.564098, lng: 2.022316300000057},
-		zoom: 8
+		center: Coords,
+		zoom: 7
 	});
 	}
     </script>
