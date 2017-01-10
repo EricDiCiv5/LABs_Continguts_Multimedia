@@ -91,14 +91,14 @@ var gameState = function(game){
 gameState.prototype = {
 	
     preload: function () {
-		game.load.image(graphicAssets.asteroidLarge.name, graphicAssets.asteroidLarge.URL);
+	game.load.image(graphicAssets.asteroidLarge.name, graphicAssets.asteroidLarge.URL);
         game.load.image(graphicAssets.asteroidMedium.name, graphicAssets.asteroidMedium.URL);
         game.load.image(graphicAssets.asteroidSmall.name, graphicAssets.asteroidSmall.URL);
         
-	    game.load.image(graphicAssets.ship.name, graphicAssets.ship.URL);
-	    game.load.image(graphicAssets.bullet.name, graphicAssets.bullet.URL);
+	game.load.image(graphicAssets.ship.name, graphicAssets.ship.URL);
+	game.load.image(graphicAssets.bullet.name, graphicAssets.bullet.URL);
 		
-	    game.load.audio(soundAssets.destroyed.name, soundAssets.destroyed.URL);
+	game.load.audio(soundAssets.destroyed.name, soundAssets.destroyed.URL);
         game.load.audio(soundAssets.fire.name, soundAssets.fire.URL);
         
         game.load.image(graphicAssets.background.name, graphicAssets.background.URL);
@@ -116,41 +116,41 @@ gameState.prototype = {
     
     create: function () {
         this.initGraphics();
-	    this.initSounds();
-	    this.initPhysics();        
-	    this.initKeyboard();
-	    this.resetAsteroids();
+	this.initSounds();
+	this.initPhysics();        
+	this.initKeyboard();
+	this.resetAsteroids();
     },
 
     update: function () {
         this.checkPlayerInput();
-	    this.checkBoundaries(this.shipSprite);
-	    this.bulletGroup.forEachExists(this.checkBoundaries, this); // Línia que més endavant podria borrar.
-	    this.asteroidGroup.forEachExists(this.checkBoundaries, this); // Línia que més endavant podria borrar.
+	this.checkBoundaries(this.shipSprite);
+	this.bulletGroup.forEachExists(this.checkBoundaries, this); // Línia que més endavant podria borrar.
+	this.asteroidGroup.forEachExists(this.checkBoundaries, this); // Línia que més endavant podria borrar.
 		
-	    game.physics.arcade.overlap(this.bulletGroup, this.asteroidGroup, this.asteroidCollision, null, this);
+	game.physics.arcade.overlap(this.bulletGroup, this.asteroidGroup, this.asteroidCollision, null, this);
 		
-	    if (!this.shipIsInvulnerable) {
-                game.physics.arcade.overlap(this.shipSprite, this.asteroidGroup, this.asteroidCollision, null, this);
-            }
+	if (!this.shipIsInvulnerable) {
+            game.physics.arcade.overlap(this.shipSprite, this.asteroidGroup, this.asteroidCollision, null, this);
+        }
     },
 	
     initGraphics: function () {
-	    this.backgroundSprite = game.add.sprite(0, 0, graphicAssets.background.name); //Valors coordenades Modificables
+	this.backgroundSprite = game.add.sprite(0, 0, graphicAssets.background.name); //Valors coordenades Modificables
         this.shipSprite = game.add.sprite(shipProperties.startX, shipProperties.startY, graphicAssets.ship.name);
         this.shipSprite.angle = -90; //Valor Variable Modificable
         this.shipSprite.anchor.set(0.5, 0.5); //Valors Variables Modificables
 		
-	    this.bulletGroup = game.add.group();
-	    this.asteroidGroup = game.add.group();
+	this.bulletGroup = game.add.group();
+	this.asteroidGroup = game.add.group();
 		
-	    this.tf_lives = game.add.text(20, 10, shipProperties.startingLives, fontAssets.counterFontStyle); //Valors Variables Modificables
+	this.tf_lives = game.add.text(20, 10, shipProperties.startingLives, fontAssets.counterFontStyle); //Valors Variables Modificables
 		
-	    this.tf_score = game.add.text(gameProperties.screenWidth - 20, 10, "0", fontAssets.counterFontStyle); //Valors Variables Modificables
+	this.tf_score = game.add.text(gameProperties.screenWidth - 20, 10, "0", fontAssets.counterFontStyle); //Valors Variables Modificables
         this.tf_score.align = 'right'; //Valors Variables Modificables
         this.tf_score.anchor.set(1, 0); //Valors Variables Modificables
 		
-	    this.explosionLargeGroup = game.add.group();
+	this.explosionLargeGroup = game.add.group();
         this.explosionLargeGroup.createMultiple(20, graphicAssets.explosionLarge.name, 0); //Valors Variables Modificables
         this.explosionLargeGroup.setAll('anchor.x', 0.5); //Valors Variables Modificables
         this.explosionLargeGroup.setAll('anchor.y', 0.5); //Valors Variables Modificables
@@ -181,14 +181,14 @@ gameState.prototype = {
         this.shipSprite.body.drag.set(shipProperties.drag);
         this.shipSprite.body.maxVelocity.set(shipProperties.maxVelocity);
 		
-	    this.bulletGroup.enableBody = true;
+	this.bulletGroup.enableBody = true;
         this.bulletGroup.physicsBodyType = Phaser.Physics.ARCADE;
         this.bulletGroup.createMultiple(bulletProperties.maxCount, graphicAssets.bullet.name);
         this.bulletGroup.setAll('anchor.x', 0.5); //Valors Variables Modificables
         this.bulletGroup.setAll('anchor.y', 0.5); //Valors Variables Modificables
         this.bulletGroup.setAll('lifespan', bulletProperties.lifespan);
 		
-	    this.asteroidGroup.enableBody = true;
+	this.asteroidGroup.enableBody = true;
         this.asteroidGroup.physicsBodyType = Phaser.Physics.ARCADE;
     },
 	
@@ -214,9 +214,9 @@ gameState.prototype = {
             this.shipSprite.body.acceleration.set(0); //Valor Variable Modificable
         }
 		
-	    if (this.key_fire.isDown) {
+	if (this.key_fire.isDown) {
             this.fire();
-            }
+        }
     },
 	
     checkBoundaries: function (sprite) {
@@ -269,7 +269,7 @@ gameState.prototype = {
             var randomVelocity = game.rnd.integerInRange(asteroidProperties[size].minVelocity, asteroidProperties[size].maxVelocity);
  
             game.physics.arcade.velocityFromRotation(randomAngle, randomVelocity, asteroid.body.velocity);
-		}
+	}
     },
 	
     resetAsteroids: function () {
@@ -291,7 +291,7 @@ gameState.prototype = {
     },
 	
     asteroidCollision: function (target, asteroid) {
-	    this.sndDestroyed.play();
+	this.sndDestroyed.play();
 		
         target.kill();
         asteroid.kill();
@@ -307,7 +307,7 @@ gameState.prototype = {
                 game.time.events.add(Phaser.Timer.SECOND * gameProperties.delayToStartLevel, this.nextLevel, this); //Valors Variables Modificables
             }
 		
-	    var explosionGroup = asteroidProperties[asteroid.key].explosion + "Group";
+	var explosionGroup = asteroidProperties[asteroid.key].explosion + "Group";
         var explosion = this[explosionGroup].getFirstExists(false);
         explosion.reset(asteroid.x, asteroid.y);
         explosion.animations.play('explode', null, false, true); //Valors Variables Modificables
@@ -323,23 +323,23 @@ gameState.prototype = {
             game.time.events.add(Phaser.Timer.SECOND * shipProperties.timeToReset, this.endGame, this); //Valors Variables Modificables
         }
 		
-	    var explosion = this.explosionLargeGroup.getFirstExists(false);
+	var explosion = this.explosionLargeGroup.getFirstExists(false);
         explosion.reset(this.shipSprite.x, this.shipSprite.y);
         explosion.animations.play('explode', 30, false, true); //Valors Variables Modificables
     },
 	
     resetShip: function () {
-	    this.shipIsInvulnerable = true;
+	this.shipIsInvulnerable = true;
         this.shipSprite.reset(shipProperties.startX, shipProperties.startY);
         this.shipSprite.angle = -90; //Valor Variable Modificable
 		
-	    game.time.events.add(Phaser.Timer.SECOND * shipProperties.timeToReset, this.shipReady, this);
-	    game.time.events.repeat(Phaser.Timer.SECOND * shipProperties.blinkDelay, shipProperties.timeToReset / shipProperties.blinkDelay, this.shipBlink, this);
+        game.time.events.add(Phaser.Timer.SECOND * shipProperties.timeToReset, this.shipReady, this);
+	game.time.events.repeat(Phaser.Timer.SECOND * shipProperties.blinkDelay, shipProperties.timeToReset / shipProperties.blinkDelay, this.shipBlink, this);
     },
 	
     shipReady: function () {
         this.shipIsInvulnerable = false; //Valor Variable Modificable
-	    this.shipSprite.visible = true; //Valor Variable Modificable
+	this.shipSprite.visible = true; //Valor Variable Modificable
     },
 	
     shipBlink: function () {
@@ -378,13 +378,13 @@ var mainState = function(game){
 	
 mainState.prototype = {
     create: function () {
-	    var startInstructions = 'Click to Start -\n\nUP arrow key for thrust.\n\nLEFT and RIGHT arrow keys to turn.\n\nSPACE key to fire.';
+	var startInstructions = 'Click to Start -\n\nUP arrow key for thrust.\n\nLEFT and RIGHT arrow keys to turn.\n\nSPACE key to fire.';
         
         this.tf_start = game.add.text(game.world.centerX, game.world.centerY, startInstructions, fontAssets.counterFontStyle);
         this.tf_start.align = 'center'; //Valors Variables Modificables
         this.tf_start.anchor.set(0.5, 0.5); //Valors Variables Modificables
 		
-	    game.input.onDown.addOnce(this.startGame, this);
+	game.input.onDown.addOnce(this.startGame, this);
     },
     
     startGame: function () {
