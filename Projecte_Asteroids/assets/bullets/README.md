@@ -1,8 +1,7 @@
 
-
 This file pretends to be a quick guide for those who had acessed to this subfolder:
 
-1.- All my '.PNG' bullet images had been resized with an external software editor called "Paint" brogughtby default by 
+1.- All my '.PNG' bullet images had been resized with an external software editor called "Paint" brought by default in
 Windows Operating System to a ressolution in pixels of 15x7 because i found in proportion suitable to be contained in an hipothetical
 canyon of the ship and also to the proportions of the ship.
 
