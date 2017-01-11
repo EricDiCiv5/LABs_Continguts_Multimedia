@@ -8,7 +8,7 @@ collision of a bullet to the different sizes of asteroids. Another solution woul
 
 2.- Here I'll put a variety of different explosion images extracted through all the internet with no copyright infringement intended 
 and also not commercial purposes, giving the possibility for the user to change the type of explosion of the game going to lines 
-22,24 and 25 of the javascript file "EDC_game.js" and overwrite the previous explosion just by typing "explosion[Large/Medium/Small]X.png"
+22,24 and 25 of the javascript file "EDC_game.js" and overwrite the previous one just by typing "explosion[Large/Medium/Small]X.png"
 or "explosion[Large/Medium/Small]X.jpg" (X goes from none to 5).
 
 Greetings and have fun, EDC!
