@@ -8,6 +8,6 @@ Another solution would be to modify the values of line 57 in order to adjust the
 
 2.- Here I'll put a variety of different big asteroid images extracted through all the internet with no copyright infringement intended 
 and also not commercial purposes, giving the possibility for the user to change the type of explosion of the game going to line 18 of
-the javascript file "EDC_game.js" and overwrite the previous asteroid just by typing "asteroidLargeX.png" (X goes from none to 6).
+the javascript file "EDC_game.js" and overwrite the previous one just typing "asteroidLargeX.png" (X goes from none to 6).
 
 Greetings and have fun, EDC!
