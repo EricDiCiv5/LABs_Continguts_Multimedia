@@ -11,7 +11,7 @@ rotation of the ship (which can be changed in the line 334 of the code "EDC_game
 
 3.- Here I'll put a variety of different bullet images (in Laser Form or in Rocket Form) extracted through all the internet with no 
 copyright infringement intended and also not commercial purposes, giving the possibility for the user to change the type of bullet 
-that will prefer to use going to line 16 of my gmain game configuration file "EDC_game.js" and overwrite the previous bullet 
-just by typing "backgroundX.png" (X goes from none to 10).
+that will prefer to use going to line 16 of my main game configuration file "EDC_game.js" and overwrite the previous one 
+just typing "backgroundX.png" (X goes from none to 10).
 
 Greetings and have fun, EDC!
