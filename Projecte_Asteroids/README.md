@@ -6,9 +6,9 @@ Número Grup: G5
 ASTEROIDS GAME
 ==============
 
-## [WANNA TO PLAY?](https://github.com/gdsa1022/LABs_Continguts_Multimedia/blob/master/Projecte_Asteroids/index.html)
+## [WANNA TO PLAY? DOWNLOAD ALL ARCHIVES AND OPEN THIS FILE TO YOUR FAVOURITE BROWSER](https://github.com/gdsa1022/LABs_Continguts_Multimedia/blob/master/Projecte_Asteroids/index.html)
 
-<img src="https://github.com/gdsa1022/LABs_Continguts_Multimedia/tree/master/Projecte_Asteroids/playing_capture.jpg"/>
+<img src="https://raw.github.com/gdsa1022/LABs_Continguts_Multimedia/tree/master/Projecte_Asteroids/playing_capture.jpg"/>
 
 
 DESCRIPTION
