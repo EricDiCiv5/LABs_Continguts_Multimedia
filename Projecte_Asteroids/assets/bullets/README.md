@@ -13,4 +13,6 @@ copyright infringement intended and also not commercial purposes, giving the pos
 that will prefer to use going to line 16 of my main game configuration file "EDC_game.js" and overwrite the previous one 
 just typing "bulletX.png" (X goes from none to 10).
 
+LATEST NEWS OF STEP 3: It hasn't been possible because of all the spritesheets in '.png' extension ( around 6 ) format that i've edited to obtain a 15x7 pixels size for the bullet, none had the color fill for the background transparent. 
+
 Greetings and have fun, EDC!
