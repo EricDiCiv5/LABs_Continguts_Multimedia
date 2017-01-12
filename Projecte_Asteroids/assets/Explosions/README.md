@@ -28,4 +28,5 @@ and also not commercial purposes, giving the possibility for the user to change 
 | explosionSmall4.png  |    64p    |     64p    |    16    |      16p      |       16p      |
 | explosionSmall5.png  |   256p    |    256p    |    16    |      64p      |       64p      |
 
+LATEST NEWS FOR TABLE OF STEP: To visualize it clearly enter into edit option in github.
 Greetings and have fun, EDC!
